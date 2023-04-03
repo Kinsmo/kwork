@@ -67,7 +67,7 @@ st.dataframe(df)
 def submit():
     if password == '7158':
         # df.to_csv(csv_url, index=False)
-        c = pygsheets.authorize()
+        c = pygsheets.authorize(service_file='snappy-airway-286708-67e493d203e2.json')
         sh = c.open_by_key('1g6Il9tXoFnqRGS4QnbbeYiyTT_3MjSsOqydZVGuGWlA')
         wks = sh.worksheet('index', 0)
         wks.set_dataframe(df,(1,1))
