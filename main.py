@@ -49,9 +49,9 @@ today_words = new_df.iloc[0,3]
 
 
 with col1:
-    st.header(f":red[今日时间：{today_time}/{last_time}]")
-    st.header(f":red[今日字数：{today_words}/{last_words}]")
-    st.header(f":red[今日页数：{today_pages}/{last_pages}]/:green[150]")
+    st.subheader(f":red[今日时间：{today_time}]/:green[{last_time}]:blue[10]")
+    st.subheader(f":red[今日字数：{today_words}]/:green[{last_words}]")
+    st.subheader(f":red[今日页数：{today_pages}]/:green[{last_pages}]/:blue[150]")
 
 # "04 add to df"
 df = pd.concat([df,new_df])
