@@ -55,7 +55,7 @@ df = pd.concat([df,new_df])
 st.dataframe(df)
 
 def submit():
-    if password == 7158:
+    if password == '7158':
         df.to_csv(file_path, index=False)
         
 with col2:
