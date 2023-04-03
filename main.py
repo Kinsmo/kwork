@@ -58,6 +58,7 @@ st.dataframe(df_csv)
 def submit():
     if password == '7158':
         df.to_csv(file_path, index=False)
+        st.balloons()
         
 with col2:
     col3,col4 = st.columns(2)
