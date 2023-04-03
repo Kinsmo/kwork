@@ -8,6 +8,7 @@ col1,col2 = st.columns(2)
 
 # "01 read file"
 file_path = "static/data.csv"
+df_csv = pd.read_csv(file_path)
 df = pd.read_csv(file_path)
 
 last_line = pd.DataFrame(df.tail(1))
@@ -52,7 +53,7 @@ with col1:
 
 # "04 add to df"
 df = pd.concat([df,new_df])
-st.dataframe(df)
+st.dataframe(df_csv)
 
 def submit():
     if password == '7158':
