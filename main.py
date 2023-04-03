@@ -30,8 +30,8 @@ else:
 # "03 new content"
 with col2:
     time = st.number_input("增加时长:", value=0)
-    words = st.number_input("当前字数:", value=0) - last_words
-    pages = st.number_input("当前页数:", value=0) - last_pages
+    words = st.number_input("当前字数:", value=last_words) - last_words
+    pages = st.number_input("当前页数:", value=last_pages) - last_pages
     password = st.text_input("写入密码:")
 
 new_df['today_time'] += time
