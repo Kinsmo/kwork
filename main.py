@@ -9,7 +9,6 @@ col1,col2 = st.columns(2)
 # "01 read file"
 file_path = "static/data.csv"
 df = pd.read_csv(file_path)
-st.dataframe(df)
 
 last_line = pd.DataFrame(df.tail(1))
 last_date = last_line.iloc[0,0]
@@ -56,12 +55,13 @@ with col1:
 
 # "04 add to df"
 df = pd.concat([df,new_df])
-
+c = st.empty()
 
 
 def on_submit():
     df.to_csv(file_path, index=False)
-    st.dataframe(df)
+    with c.container():
+        st.dataframe(df)
 
 st.button("写入数据",on_click=on_submit)
 
