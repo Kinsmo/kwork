@@ -43,8 +43,8 @@ new_df['total_time'] += time
 new_df['total_pages'] += pages
 new_df['total_words'] += words
 
-today_pages = new_df[0,2]
-today_words = new_df[0,3]
+today_pages = new_df.iloc[0,2]
+today_words = new_df.iloc[0,3]
 
 
 with col1:
