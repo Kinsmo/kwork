@@ -9,6 +9,7 @@ col1,col2 = st.columns(2)
 # "01 read file"
 file_path = "static/data.csv"
 df = pd.read_csv(file_path)
+st.dataframe(df)
 
 last_line = pd.DataFrame(df.tail(1))
 last_date = last_line.iloc[0,0]
@@ -49,9 +50,9 @@ today_words = new_df.iloc[0,3]
 
 
 with col1:
-    st.subheader(f":red[今日时间：{today_time}]/:green[{last_time}]:blue[10]")
-    st.subheader(f":red[今日字数：{today_words}]/:green[{last_words}]")
-    st.subheader(f":red[今日页数：{today_pages}]/:green[{last_pages}]/:blue[150]")
+    st.subheader(f":red[今日时间：{today_time}]/ :green[{last_time}]/ :blue[10]")
+    st.subheader(f":red[今日字数：{today_words}]/ :green[{last_words}]")
+    st.subheader(f":red[今日页数：{today_pages}]/ :green[{last_pages}]/:blue[150]")
 
 # "04 add to df"
 df = pd.concat([df,new_df])
