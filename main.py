@@ -12,6 +12,10 @@ df = pd.read_csv(file_path)
 
 last_line = pd.DataFrame(df.tail(1))
 last_date = last_line.iloc[0,0]
+last_time = last_line.iloc[0,0]
+last_pages = last_line.iloc[0,0]
+last_words = last_line.iloc[0,0]
+
 date = pd.Timestamp.today().strftime('%Y-%m-%d')
 
 # "02 new line"
@@ -20,7 +24,7 @@ if last_date == date:
     new_df = last_line
     df.drop(df.tail(1).index, inplace=True)
 else:
-    new_df = pd.DataFrame({'date':[date],'today_time':[0],'today_pages':[0],'today_words':[0],'total_time':[0],'total_pages':[0],'total_words':[0]})
+    new_df = pd.DataFrame({'date':[date],'today_time':[0],'today_pages':[0],'today_words':[0],'total_time':[last_time],'total_pages':[last_pages],'total_words':[last_words]})
     
 # "03 new content"
 with col2:
