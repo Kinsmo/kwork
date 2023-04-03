@@ -8,7 +8,7 @@ col1,col2 = st.columns(2)
 
 # "01 read file"
 file_path = "static/data.csv"
-df_csv = pd.read_csv(file_path,names=['日期', '当日时长', '当日页数', '当日字数', '总时长', '总页数', '总字数'])
+df_csv = pd.read_csv(file_path, header=None,names=['日期', '当日时长', '当日页数', '当日字数', '总时长', '总页数', '总字数'])
 df = pd.read_csv(file_path)
 
 last_line = pd.DataFrame(df.tail(1))
