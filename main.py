@@ -8,8 +8,13 @@ col1,col2 = st.columns(2)
 
 # "01 read file"
 file_path = "static/data.csv"
-df_csv = pd.read_csv(file_path, skiprows=1, names=['日期', '当日时长', '当日页数', '当日字数', '总时长', '总页数', '总字数'])
-df = pd.read_csv(file_path)
+
+
+csv_url = st.secrets["public_gsheets_url"]
+csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
+
+df_csv = pd.read_csv(csv_url, skiprows=1, names=['日期', '当日时长', '当日页数', '当日字数', '总时长', '总页数', '总字数'])
+df = pd.read_csv(csv_url)
 
 last_line = pd.DataFrame(df.tail(1))
 last_date = last_line.iloc[0,0]
