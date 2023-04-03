@@ -56,4 +56,4 @@ if is_submit:
 
 st.dataframe(df)
 st.line_chart(df,x='date',y=['today_time','today_pages'])
-st.line_chart(df,x='date',y=['total_words','today_words'])
+st.bar_chart(df,x='date',y=['total_words','today_words'])
