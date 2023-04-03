@@ -28,13 +28,10 @@ else:
     
 # "03 new content"
 with col2:
-    is_rerun = st.button("刷新")
-    if is_rerun:
-        st.experimental_rerun()
     time = st.number_input("增加时长:", value=0)
     words = st.number_input("增加字数:", value=0)
     pages = st.number_input("增加页数:", value=0)
-    password = st.number_input("写入密码:")
+    password = st.text_input("写入密码:")
 
 new_df['today_time'] += time
 new_df['today_pages'] += pages
@@ -57,12 +54,16 @@ with col1:
 st.dataframe(df)
 df = pd.concat([df,new_df])
 
-def on_submit():
+def submit():
     if password == 7158:
         df.to_csv(file_path, index=False)
+def rerun():
+    st.experimental_rerun()
     
 with col2:
-    st.button("写入数据",on_click=on_submit)
+    col3,col4 = st.columns(2)
+    with col3: st.button("刷新",on_click=rerun)
+    with col4: st.button("写入数据",on_click=submit)
 
 st.line_chart(df,x='date',y=['today_time','today_pages'])
 st.bar_chart(df,x='date',y=['total_words','today_words'])
