@@ -51,8 +51,8 @@ with col1:
     st.subheader(f":red[今日页数：{today_pages}] / :green[{last_pages}] /:blue[150]")
 
 # "04 add to df"
-st.dataframe(df)
 df = pd.concat([df,new_df])
+st.dataframe(df)
 
 def submit():
     if password == 7158:
