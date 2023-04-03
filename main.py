@@ -60,8 +60,8 @@ def submit():
         
 with col2:
     col3,col4 = st.columns(2)
-    if st.button("刷新"):
-        st.experimental_rerun()
+    with col3: rerun = st.button("刷新")
+    if rerun: st.experimental_rerun()
     with col4: st.button("写入数据",on_click=submit)
 
 st.line_chart(df,x='date',y=['today_time','today_pages'])
