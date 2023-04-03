@@ -54,14 +54,11 @@ with col1:
     st.subheader(f":red[今日页数：{today_pages}] / :green[{last_pages}] /:blue[150]")
 
 # "04 add to df"
+st.dataframe(df)
 df = pd.concat([df,new_df])
-c = st.empty()
-
 
 def on_submit():
     df.to_csv(file_path, index=False)
-    with c.container():
-        st.dataframe(df)
 
 st.button("写入数据",on_click=on_submit)
 
