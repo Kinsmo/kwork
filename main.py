@@ -34,6 +34,7 @@ with col2:
     time = st.number_input("增加时长:", value=0)
     words = st.number_input("增加字数:", value=0)
     pages = st.number_input("增加页数:", value=0)
+    password = st.number_input("写入密码:")
 
 new_df['today_time'] += time
 new_df['today_pages'] += pages
@@ -57,7 +58,9 @@ st.dataframe(df)
 df = pd.concat([df,new_df])
 
 def on_submit():
-    df.to_csv(file_path, index=False)
+    if password == 7158:
+        df.to_csv(file_path, index=False)
+    
 with col2:
     st.button("写入数据",on_click=on_submit)
 
