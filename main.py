@@ -28,7 +28,6 @@ else:
     
 # "03 new content"
 with col2:
-    is_submit = st.checkbox("提交数据？",value=False)
     is_rerun = st.button("刷新")
     if is_rerun:
         st.experimental_rerun()
@@ -59,8 +58,8 @@ df = pd.concat([df,new_df])
 
 def on_submit():
     df.to_csv(file_path, index=False)
-
-st.button("写入数据",on_click=on_submit)
+with col2:
+    st.button("写入数据",on_click=on_submit)
 
 st.line_chart(df,x='date',y=['today_time','today_pages'])
 st.bar_chart(df,x='date',y=['total_words','today_words'])
