@@ -57,8 +57,7 @@ df = pd.concat([df,new_df])
 
 if is_submit:
     df.to_csv(file_path, index=False)
+    st.dataframe(df)
 
-
-st.dataframe(df)
 st.line_chart(df,x='date',y=['today_time','today_pages'])
 st.bar_chart(df,x='date',y=['total_words','today_words'])
