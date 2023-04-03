@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import datetime
 import matplotlib.pyplot as plt
+import pygsheets
 
 st.title('张运霄写论文日志')
 col1,col2 = st.columns(2)
@@ -65,7 +66,11 @@ st.dataframe(df)
 
 def submit():
     if password == '7158':
-        df.to_csv(csv_url, index=False)
+        # df.to_csv(csv_url, index=False)
+        c = pygsheets.authorize()
+        sh = c.open_by_key('1g6Il9tXoFnqRGS4QnbbeYiyTT_3MjSsOqydZVGuGWlA')
+        wks = sh.worksheet('index', 0)
+        wks.set_dataframe(df,(1,1))
         st.balloons()
         
 with col2:
