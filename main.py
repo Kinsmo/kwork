@@ -43,14 +43,15 @@ new_df['total_time'] += time
 new_df['total_pages'] += pages
 new_df['total_words'] += words
 
+today_time = new_df.iloc[0,1]
 today_pages = new_df.iloc[0,2]
 today_words = new_df.iloc[0,3]
 
 
 with col1:
-    st.header(f":red[今日时间：{last_time}]")
-    st.header(f":red[今日字数：{today_words}/{last_words}]")
-    st.header(f":red[今日页数：{today_pages}/{last_pages}]")
+    st.header(f":red[今日时间/总时间：{today_time}/{last_time}]")
+    st.header(f":red[今日字数/总字数：{today_words}/{last_words}]")
+    st.header(f":red[今日页数/总页数：{today_pages}/{last_pages}]/:green[150]")
 
 # "04 add to df"
 df = pd.concat([df,new_df])
