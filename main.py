@@ -8,17 +8,9 @@ st.title('张运霄写论文日志')
 col1,col2 = st.columns(2)
 
 # "01 read file"
-# file_path = "static/data.csv"
-
-@st.cache_data(ttl=60)
-def load_data(sheets_url):
-    csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
-    return pd.read_csv(csv_url)
-
-df = load_data(st.secrets["public_gsheets_url"])
-
-# df_csv = pd.read_csv(csv_url, skiprows=1, names=['日期', '当日时长', '当日页数', '当日字数', '总时长', '总页数', '总字数'])
-# df = pd.read_csv(csv_url)
+file_path = "static/data.csv"
+df_csv = pd.read_csv(file_path, skiprows=1, names=['日期', '当日时长', '当日页数', '当日字数', '总时长', '总页数', '总字数'])
+df = pd.read_csv(file_path)
 
 last_line = pd.DataFrame(df.tail(1))
 last_date = last_line.iloc[0,0]
@@ -66,11 +58,7 @@ st.dataframe(df)
 
 def submit():
     if password == '7158':
-        # df.to_csv(csv_url, index=False)
-        gc = pygsheets.authorize(client_secret='kwork_thesis.json')
-        sheet = gc.open('kwork_phd_thesis')
-        worksheet = sheet[0]
-        worksheet.set_dataframe(df,(1,1))
+        df.to_csv(file_path, index=False)
         st.balloons()
         
 with col2:
