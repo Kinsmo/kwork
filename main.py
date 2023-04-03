@@ -67,7 +67,7 @@ st.dataframe(df)
 def submit():
     if password == '7158':
         # df.to_csv(csv_url, index=False)
-        gc = pygsheets.authorize(client_secret='snappy-airway-286708-67e493d203e2.json')
+        gc = pygsheets.authorize(client_secret='kwork_thesis.json')
         sheet = gc.open('kwork_phd_thesis')
         worksheet = sheet[0]
         worksheet.set_dataframe(df,(1,1))
