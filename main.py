@@ -13,8 +13,8 @@ df = pd.read_csv(file_path)
 last_line = pd.DataFrame(df.tail(1))
 last_date = last_line.iloc[0,0]
 last_time = last_line.iloc[0,4]
-last_pages = last_line.iloc[5,0]
-last_words = last_line.iloc[6,0]
+last_pages = last_line.iloc[0,5]
+last_words = last_line.iloc[0,6]
 
 date = pd.Timestamp.today().strftime('%Y-%m-%d')
 
