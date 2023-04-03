@@ -2,7 +2,6 @@ import pandas as pd
 import streamlit as st
 import datetime
 import matplotlib.pyplot as plt
-import pygsheets
 
 st.title('张运霄写论文日志')
 col1,col2 = st.columns(2)
@@ -30,7 +29,7 @@ else:
     
 # "03 new content"
 with col2:
-    time = st.number_input("增加时长:", value=0)
+    time = st.number_input("今日时常:", value=last_time) - last_time
     words = st.number_input("当前字数:", value=last_words) - last_words
     pages = st.number_input("当前页数:", value=last_pages) - last_pages
     password = st.text_input("写入密码:")
