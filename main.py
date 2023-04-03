@@ -43,9 +43,14 @@ new_df['total_time'] += time
 new_df['total_pages'] += pages
 new_df['total_words'] += words
 
+today_pages = new_df['today_pages']
+today_words = new_df['today_words']
+
+
 with col1:
-    st.header(f"今日工作时间：{last_time}")
-    st.header(f"当前页数：{last_pages}")
+    st.header(f"今日时间：{last_time}")
+    st.header(f"今日字数：{today_words}/{last_words}")
+    st.header(f"今日页数：{today_pages}/{last_pages}")
 
 # "04 add to df"
 df = pd.concat([df,new_df])
