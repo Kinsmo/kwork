@@ -43,6 +43,10 @@ new_df['total_time'] += time
 new_df['total_pages'] += pages
 new_df['total_words'] += words
 
+with col1:
+    st.header(f"今日工作时间：{last_time}")
+    st.header(f"当前页数：{last_pages}")
+
 # "04 add to df"
 df = pd.concat([df,new_df])
 
@@ -51,5 +55,5 @@ if is_submit:
 
 
 st.dataframe(df)
-st.line_chart(df,x='date',y=['today_time','today_words'])
-st.line_chart(df,x='date',y=['total_words'])
+st.line_chart(df,x='date',y=['today_time','today_pages'])
+st.line_chart(df,x='date',y=['total_words','today_words'])
