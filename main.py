@@ -57,12 +57,11 @@ df = pd.concat([df,new_df])
 def submit():
     if password == 7158:
         df.to_csv(file_path, index=False)
-def rerun():
-    st.experimental_rerun()
-    
+        
 with col2:
     col3,col4 = st.columns(2)
-    with col3: st.button("刷新",on_click=rerun)
+    if st.button("刷新"):
+        st.experimental_rerun()
     with col4: st.button("写入数据",on_click=submit)
 
 st.line_chart(df,x='date',y=['today_time','today_pages'])
