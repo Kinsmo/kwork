@@ -7,7 +7,7 @@ st.title('张运霄写论文日志')
 col1,col2 = st.columns(2)
 
 # "01 read file"
-file_path = "statc/data.csv"
+file_path = "./statc/data.csv"
 df = pd.read_csv(file_path)
 
 last_line = pd.DataFrame(df.tail(1))
