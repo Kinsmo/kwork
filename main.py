@@ -57,9 +57,13 @@ with col1:
 # "04 add to df"
 df = pd.concat([df,new_df])
 
-if is_submit:
+
+
+def on_submit():
     df.to_csv(file_path, index=False)
     st.dataframe(df)
+
+st.button("写入数据",on_click=on_submit)
 
 st.line_chart(df,x='date',y=['today_time','today_pages'])
 st.bar_chart(df,x='date',y=['total_words','today_words'])
