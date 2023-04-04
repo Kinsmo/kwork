@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
-import datetime as dt
+from datetime import datetime as dt
 
 def time_diff(start_time,end_time):
     start_time = dt.strptime(start_work, '%H:%M')
