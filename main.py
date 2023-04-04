@@ -20,22 +20,26 @@ col1,col2 = st.columns(2)
 file_path = "static/data.csv"
 df = pd.read_csv(file_path)
 
+date = pd.Timestamp.today().strftime('%Y-%m-%d')
+time_now = dt.now().strftime('%H:%M')
+
 last_line = pd.DataFrame(df.tail(1))
 last_date = last_line.iloc[0,0]
+
+# "02 new line"
+new_df = last_line
 last_time = last_line.iloc[0,4]
 last_pages = last_line.iloc[0,5]
 last_words = last_line.iloc[0,6]
 
-date = pd.Timestamp.today().strftime('%Y-%m-%d')
-time_now = dt.now().strftime('%H:%M')
-# "02 new line"
-new_df = None
 if last_date == date:
-    new_df = last_line
     df.drop(df.tail(1).index, inplace=True)
+    last_line = pd.DataFrame(df.tail(1))
+    last_time = last_line.iloc[0,4]
+    last_pages = last_line.iloc[0,5]
+    last_words = last_line.iloc[0,6]
 else:
-    new_df = pd.DataFrame({'date':[date],'today_time':[0],'today_pages':[0],'today_words':[0],'total_time':[0],'total_pages':[0],'total_words':[0],'start_work':[0],'end_work':[0],'work_time':[0]})
-    
+ 
 # "03 new content"
 with col2:
     today_time = st.number_input("今日时常:", value=0)
@@ -45,21 +49,20 @@ with col2:
     end_work = st.text_input("下班打卡:", value='23:00')
     password = st.text_input("写入密码:")
 
-new_df['today_time'] = today_time
-new_df['today_pages'] = total_pages - last_pages
-new_df['today_words'] = total_words - last_words
-new_df['total_time'] = last_time + today_time
-new_df['total_pages'] = total_pages
-new_df['total_words'] = total_words
-new_df['start_work'] = start_work
-new_df['end_work'] = end_work
-new_df['work_time'] = time_diff(start_work,end_work)
+new_df = pd.DataFrame({'date':[date],
+                       'today_time':[today_time],
+                       'today_pages':[total_pages - last_pages],
+                       'today_words':[total_words - last_words],
+                       'total_time':[last_time + today_time],
+                       'total_pages':[total_pages],
+                       'total_words':[total_words],
+                       'start_work':[start_work],
+                       'end_work':[end_work],
+                       'work_time':[time_diff(start_work,end_work)]})
 
-today_time = new_df.iloc[0,1]
 today_pages = new_df.iloc[0,2]
 today_words = new_df.iloc[0,3]
 work_till_now = time_diff(start_work,time_now)
-
 
 with col1:
     st.subheader(f":red[今日时间：{today_time}] -> :green[{last_time}] -> :blue[10]")
