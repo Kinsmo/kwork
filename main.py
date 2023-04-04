@@ -57,9 +57,9 @@ else:
     total_words_yesterday = last_line.iloc[0,6]
     
     default_time_today = 0
-    default_total_words = total_time_yesterday
+    default_total_words = total_words_yesterday
     default_total_pages = total_pages_yesterday
-    default_total_time = total_words_yesterday
+    default_total_time = total_time_yesterday
     default_start_work = '9:00'
     default_end_work = '23:00'
 
