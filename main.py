@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from datetime import datetime as dt
 import datetime
 
+colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
+
 def time_diff(start_time,end_time):
     start_time = dt.strptime(start_work, '%H:%M')
     end_time = dt.strptime(end_work, '%H:%M')
@@ -97,8 +99,8 @@ st.bar_chart(df2,x='日期',y=['当日字数','总字数'])
 
 fig = plt.figure(figsize=(10,5))
 ax = fig.add_subplot(1, 1, 1)
-ax.plot(df2['日期'],df2['上班打卡'],'r-',lw=4,label=f"上班")
-ax.plot(df2['日期'],df2['下班打卡'],'g-',lw=4,label=f"下班")
+ax.plot(df2['日期'],df2['上班打卡'],'r-',lw=4,color=colors[0],label=f"上班")
+ax.plot(df2['日期'],df2['下班打卡'],'g-',lw=4,color=colors[1],label=f"下班")
 ax.legend(loc="upper right")
 st.pyplot(fig)
 
