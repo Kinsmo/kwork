@@ -41,9 +41,9 @@ if last_date == date_today:
     total_words_yesterday = last_line.iloc[0,6]
     
     default_time_today = time_today
-    default_total_words = total_time_today
+    default_total_words = total_words_today
     default_total_pages = total_pages_today
-    default_total_time = total_words_today
+    default_total_time =  total_time_today
     default_start_work = last_line.iloc[0,7]
     default_end_work = last_line.iloc[0,8]
     
