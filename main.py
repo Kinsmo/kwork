@@ -96,7 +96,7 @@ with col2:
 
 st.area_chart(df2,x='日期',y=['当日时长','当日页数','工作时长'])
 st.bar_chart(df2,x='日期',y=['当日字数','总字数'])
-st.line_chart(df2,x='日期',y=['上班打卡','下班打卡'])
+#st.line_chart(df2,x='日期',y=['上班打卡','下班打卡'])
 
 #fig = plt.figure(figsize=(10,5))
 #ax = fig.add_subplot(1, 1, 1)
