@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 from datetime import datetime as dt
+import datetime
 
 def time_diff(start_time,end_time):
     start_time = dt.strptime(start_work, '%H:%M')
@@ -76,9 +77,9 @@ def submit():
         
 df2 = df.rename({'date':'日期','today_time':'当日时长','today_pages':'当日页数','today_words':'当日字数','total_time':'总时长','total_pages':'总页数','total_words':'总字数','start_work':'上班打卡','end_work':'下班打卡','work_time':'工作时长'}, axis='columns')
 df2['日期'] = pd.to_datetime(df2['日期'])
-df2['日期'] = df2['日期'].dt.strftime('%m-%d')
-df2['上班打卡'] = df2['上班打卡'].dt.strftime('%H:%M')
-df2['下班打卡'] = df2['下班打卡'].dt.strftime('%H:%M')
+df2['日期'] = df2['日期'].datetime.strftime('%m-%d')
+df2['上班打卡'] = df2['上班打卡'].datetime.strftime('%H:%M')
+df2['下班打卡'] = df2['下班打卡'].datetime.strftime('%H:%M')
 st.dataframe(df2)
 
 with col2:
