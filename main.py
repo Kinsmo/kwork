@@ -59,8 +59,8 @@ def submit():
         df.to_csv(file_path, index=False)
         st.balloons()
         
-df.columns.values = ['日期','当日时长','当日页数','当日字数','总时长','总页数','总字数']
-st.dataframe(df)
+df2 = df.rename({'date':'日期','today_time':'当日时长','today_pages':'当日页数','today_words':'当日字数','total_time':'总时长','total_pages':'总页数','total_words':'总字数'}, axis='columns')
+st.dataframe(df2)
 
 with col2:
     col3,col4 = st.columns(2)
