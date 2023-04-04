@@ -98,6 +98,7 @@ st.area_chart(df2,x='日期',y=['当日时长','当日页数','工作时长'])
 st.bar_chart(df2,x='日期',y=['当日字数','总字数'])
 
 fig = plt.figure(figsize=(10,5))
+plt.gca().set_ylim(plt.gca().get_ylim()[::-1])
 ax = fig.add_subplot(1, 1, 1)
 ax.plot(df2['日期'],df2['上班打卡'],'r-',lw=4,color=colors[0],label=f"上班")
 ax.plot(df2['日期'],df2['下班打卡'],'g-',lw=4,color=colors[1],label=f"下班")
