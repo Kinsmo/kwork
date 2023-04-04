@@ -67,4 +67,4 @@ with col2:
     with col4: st.button("写入数据",on_click=submit)
 
 st.area_chart(df,x='date',y=['today_time','today_pages'])
-st.bar_chart(df,x='date',y=['total_words','today_words'])
+st.bar_chart(df,x='date',y=['today_words','total_words'])
