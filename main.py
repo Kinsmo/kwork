@@ -38,7 +38,6 @@ if last_date == date:
     last_time = last_line.iloc[0,4]
     last_pages = last_line.iloc[0,5]
     last_words = last_line.iloc[0,6]
-else:
  
 # "03 new content"
 with col2:
