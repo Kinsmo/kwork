@@ -98,7 +98,10 @@ with col1:
 
 # "04 add to df"
 df = pd.concat([df,new_df])
-df.to_csv(file_path, index=False)
+
+def submit():
+    df.to_csv(file_path, index=False)
+    st.balloons()
         
 df2 = df.rename({'date':'日期','today_time':'当日时长','today_pages':'当日页数','today_words':'当日字数','total_time':'总时长','total_pages':'总页数','total_words':'总字数','start_work':'上班打卡','end_work':'下班打卡','work_time':'工作时长'}, axis='columns')
 df2['日期'] = pd.to_datetime(df2['日期'])
@@ -109,9 +112,10 @@ st.dataframe(df2)
 data = df.to_csv(index=False)
 
 with col2:
-    col3,col4 = st.columns(2)
+    col3,col4,col5 = st.columns(3)
     with col3: rerun = st.button("刷新")
     with col4: st.download_button("下载数据",data,"data.csv","text/csv")
+    with col5: st.button("写入数据",on_click=submit)
     if rerun: st.experimental_rerun()
 
 # Plot
