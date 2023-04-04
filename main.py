@@ -68,7 +68,7 @@ with col2:
     if rerun: st.experimental_rerun()
     with col4: st.button("写入数据",on_click=submit)
 
-st.area_chart(df,x='日期',y=['当日时长','当日页数'])
-st.bar_chart(df,x='日期',y=['当日字数','总字数'])
+st.area_chart(df2,x='日期',y=['当日时长','当日页数'])
+st.bar_chart(df2,x='日期',y=['当日字数','总字数'])
 #st.area_chart(df,x='date',y=['today_time','today_pages'])
 #st.bar_chart(df,x='date',y=['today_words','total_words'])
