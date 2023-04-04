@@ -25,21 +25,21 @@ if last_date == date:
     new_df = last_line
     df.drop(df.tail(1).index, inplace=True)
 else:
-    new_df = pd.DataFrame({'date':[date],'today_time':[0],'today_pages':[0],'today_words':[0],'total_time':[last_time],'total_pages':[last_pages],'total_words':[last_words]})
+    new_df = pd.DataFrame({'date':[date],'today_time':[0],'today_pages':[0],'today_words':[0],'total_time':[0],'total_pages':[0],'total_words':[0]})
     
 # "03 new content"
 with col2:
-    time = st.number_input("今日时常:", value=last_time) - last_time
-    words = st.number_input("当前字数:", value=last_words) - last_words
-    pages = st.number_input("当前页数:", value=last_pages) - last_pages
+    today_time = st.number_input("今日时常:", value=0)
+    total_words = st.number_input("当前字数:", value=last_words)
+    total_pages = st.number_input("当前页数:", value=last_pages)
     password = st.text_input("写入密码:")
 
-new_df['today_time'] += time
-new_df['today_pages'] += pages
-new_df['today_words'] += words
-new_df['total_time'] += time
-new_df['total_pages'] += pages
-new_df['total_words'] += words
+new_df['today_time'] = today_time
+new_df['today_pages'] = total_pages - last_pages
+new_df['today_words'] = total_words - last_words
+new_df['total_time'] = last_time + today_time
+new_df['total_pages'] = total_pages
+new_df['total_words'] = total_words
 
 today_time = new_df.iloc[0,1]
 today_pages = new_df.iloc[0,2]
