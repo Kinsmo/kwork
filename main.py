@@ -97,7 +97,7 @@ st.bar_chart(df2,x='日期',y=['当日字数','总字数'])
 
 fig = plt.figure(figsize=(10,5))
 ax = fig.add_subplot(1, 1, 1)
-ax.plot(df2['日期'],df2['上班打卡','下班打卡'])
+ax.plot(df2['日期'],df2['上班打卡'])
 st.pyplot(fig)
 
 #st.line_chart(df2,x='日期',y=['上班打卡','下班打卡'])
