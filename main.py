@@ -60,6 +60,7 @@ def submit():
         st.balloons()
         
 df2 = df.rename({'date':'日期','today_time':'当日时长','today_pages':'当日页数','today_words':'当日字数','total_time':'总时长','total_pages':'总页数','total_words':'总字数'}, axis='columns')
+df2['日期'] = df['日期'].dt.strftime('%m-%d')
 st.dataframe(df2)
 
 with col2:
