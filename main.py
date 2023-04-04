@@ -109,7 +109,7 @@ st.dataframe(df2)
 data = df.to_csv(index=False)
 
 with col2:
-    col3,col4 = st.columns(3)
+    col3,col4 = st.columns(2)
     with col3: rerun = st.button("刷新")
     with col4: st.download_button("下载数据",data,"data.csv","text/csv")
     if rerun: st.experimental_rerun()
