@@ -66,11 +66,10 @@ with col1:
     st.subheader(f":red[今日字数：{today_words}] -> :green[{last_words}]")
     st.subheader(f":red[今日页数：{today_pages}] -> :green[{last_pages}] -> :blue[150]")
     st.subheader(f":red[今日上班打卡：{start_work}]")
-    st.subheader(f":red[已工作时间：{work_till_now}]")
+    st.subheader(f":red[已工作时间：{work_till_now:.1f}]")
 
 # "04 add to df"
 df = pd.concat([df,new_df])
-
 
 def submit():
     if password == '7158':
