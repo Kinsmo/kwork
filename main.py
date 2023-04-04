@@ -53,7 +53,7 @@ with col1:
 
 # "04 add to df"
 df = pd.concat([df,new_df])
-st.dataframe(df)
+st.dataframe(df_csv)
 
 def submit():
     if password == '7158':
